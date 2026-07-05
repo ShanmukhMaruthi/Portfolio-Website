@@ -4,9 +4,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const WhatIDo = () => {
   const containerRef = useRef<(HTMLDivElement | null)[]>([]);
+
   const setRef = (el: HTMLDivElement | null, index: number) => {
     containerRef.current[index] = el;
   };
+
   useEffect(() => {
     if (ScrollTrigger.isTouch) {
       containerRef.current.forEach((container) => {
@@ -16,6 +18,7 @@ const WhatIDo = () => {
         }
       });
     }
+
     return () => {
       containerRef.current.forEach((container) => {
         if (container) {
@@ -24,6 +27,7 @@ const WhatIDo = () => {
       });
     };
   }, []);
+
   return (
     <div className="whatIDO">
       <div className="what-box">
@@ -34,6 +38,7 @@ const WhatIDo = () => {
           </div>
         </h2>
       </div>
+
       <div className="what-box">
         <div className="what-box-in">
           <div className="what-border2">
@@ -58,6 +63,9 @@ const WhatIDo = () => {
               />
             </svg>
           </div>
+
+          {/* DATA ANALYTICS CARD */}
+
           <div
             className="what-content what-noTouch"
             ref={(el) => setRef(el, 0)}
@@ -84,31 +92,40 @@ const WhatIDo = () => {
                 />
               </svg>
             </div>
+
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>DEVELOP</h3>
-              <h4>Description</h4>
+              <h3>DATA ANALYTICS</h3>
+
+              <h4>Transforming data into meaningful business insights.</h4>
+
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae.
+                I analyze, clean, visualize, and interpret business data to
+                uncover trends, solve real-world problems, and build interactive
+                dashboards that support data-driven decision making.
               </p>
-              <h5>Skillset & tools</h5>
+
+              <h5>Skills & Tools</h5>
+
               <div className="what-content-flex">
-                <div className="what-tags">JavaScript</div>
-                <div className="what-tags">TypeScript</div>
-                <div className="what-tags">Three.js</div>
-                <div className="what-tags">React</div>
-                <div className="what-tags">Css</div>
-                <div className="what-tags">Node.js</div>
-                <div className="what-tags">Next.js</div>
-                <div className="what-tags">Express.js</div>
-                <div className="what-tags">PHP</div>
-                <div className="what-tags">MySql</div>
+                <div className="what-tags">Python</div>
+                <div className="what-tags">SQL</div>
+                <div className="what-tags">Power BI</div>
+                <div className="what-tags">Excel</div>
+                <div className="what-tags">Pandas</div>
+                <div className="what-tags">NumPy</div>
+                <div className="what-tags">Power Query</div>
+                <div className="what-tags">DAX</div>
+                <div className="what-tags">MySQL</div>
               </div>
+
               <div className="what-arrow"></div>
             </div>
           </div>
+
+          {/* MACHINE LEARNING CARD */}
+
           <div
             className="what-content what-noTouch"
             ref={(el) => setRef(el, 1)}
@@ -126,25 +143,33 @@ const WhatIDo = () => {
                 />
               </svg>
             </div>
+
             <div className="what-corner"></div>
+
             <div className="what-content-in">
-              <h3>DESIGN</h3>
-              <h4>Description</h4>
+              <h3>MACHINE LEARNING</h3>
+
+              <h4>Building intelligent AI-powered applications.</h4>
+
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae
+                I develop machine learning and AI solutions using Python,
+                Scikit-learn, FastAPI, and modern NLP techniques to automate
+                tasks, generate insights, and solve complex business problems.
               </p>
-              <h5>Skillset & tools</h5>
+
+              <h5>Skills & Tools</h5>
+
               <div className="what-content-flex">
-                <div className="what-tags">Blender</div>
-                <div className="what-tags">Zbrush</div>
-                <div className="what-tags">UI Design</div>
-                <div className="what-tags">Motion</div>
-                <div className="what-tags">Rigging</div>
-                <div className="what-tags">3D Animation</div>
-                <div className="what-tags">Character Design</div>
-                <div className="what-tags">Modelling</div>
+                <div className="what-tags">Scikit-learn</div>
+                <div className="what-tags">Machine Learning</div>
+                <div className="what-tags">FastAPI</div>
+                <div className="what-tags">NLP</div>
+                <div className="what-tags">RAG</div>
+                <div className="what-tags">Git</div>
+                <div className="what-tags">Docker</div>
+                <div className="what-tags">Streamlit</div>
               </div>
+
               <div className="what-arrow"></div>
             </div>
           </div>
@@ -159,6 +184,7 @@ export default WhatIDo;
 function handleClick(container: HTMLDivElement) {
   container.classList.toggle("what-content-active");
   container.classList.remove("what-sibling");
+
   if (container.parentElement) {
     const siblings = Array.from(container.parentElement.children);
 
